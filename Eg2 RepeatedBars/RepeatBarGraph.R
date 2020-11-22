@@ -1,8 +1,8 @@
 library(tidyverse)
 library(foreign)
 library(viridis)
-## Choose the directory manually or using RStudio Session -> set working directory -< To source file location
-## choose.dir()
+## Choose the directory manually with choose.dir()  
+## or using RStudio Session -> set working directory -< To source file location
 ## How many DBF files you want to read?
 thelist <- 1:6
 ## read them!
@@ -23,7 +23,6 @@ makegraph <- function(i){
     ggtitle(paste0("Usos suelo en sitio ",i)) +
     theme(text = element_text(size=11),
           axis.text.x = element_text(angle=90, hjust=1)) 
-  xlab("")
   return(a)
 }
 ## hardcoded to take a quick look at the data
