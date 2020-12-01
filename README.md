@@ -2,7 +2,7 @@
 Useful code for me 
 
 ### Eg 1
-Descriptive statistics summary
+Descriptive statistics summary boxplot
 ### Eg 2
 Repeatead bar graphs using loops to process several dataframes
 #### Eg 2.2
