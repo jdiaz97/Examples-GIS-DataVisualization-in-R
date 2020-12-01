@@ -1,7 +1,6 @@
 library(tidyverse)
 library(foreign)
 library(viridis)
-library(stringi)
 getwd()
 ## for next step be sure to setup your directory
 
