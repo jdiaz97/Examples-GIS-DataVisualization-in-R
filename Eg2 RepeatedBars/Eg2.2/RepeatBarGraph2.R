@@ -40,7 +40,7 @@ R3 <-  R3 %>%
     "SUBUSO" =  `NOMBRE`,
     "NOM_REG" =  `REGION`,
   )
-R3$NOM_REG <- "Región de "
+R3$NOM_REG <- "Región de Atacama"
 R4 <-  R4 %>% 
   rename(
     "Provincia" = `NOM_PROV`,
