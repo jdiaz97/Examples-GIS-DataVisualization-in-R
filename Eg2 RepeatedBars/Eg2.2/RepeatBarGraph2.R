@@ -17,7 +17,7 @@ R11 <- read.dbf(file = "Catastro_RV_R11_2011.dbf", as.is = TRUE)
 R12 <- read.dbf(file = "Catastro_RV_R12_2005.dbf", as.is = TRUE)
 R13 <- read.dbf(file = "Catastro_RV_R13_2013.dbf", as.is = TRUE)
 R15 <- read.dbf(file = "Catastro_RV_R15_2015.dbf", as.is = TRUE)
-
+alldfs <- ls()
 ## fixing the data, mostly, and making changes so we can graph the dataframes.
 R1 <-  R1 %>% 
   rename(
@@ -121,6 +121,8 @@ makegraph <- function(REGION){
      ylab("Tipo de uso de suelo") +
      geom_bar(position="stack", stat="identity") +
      ggtitle(B) +
+     expand_limits(x = 0) +
+     scale_x_continuous(expand = c(0, 0)) +
      theme(text = element_text(size=11),
            axis.text.x = element_text(angle=90, hjust=1)) 
   print(a)
