@@ -1,6 +1,5 @@
 library(tidyverse)
 library(foreign)
-library(viridis)
 ## Choose the directory manually with choose.dir()  
 ## or using RStudio Session -> set working directory -< To source file location
 ## How many DBF files you want to read?
@@ -9,7 +8,7 @@ thelist <- 1:6
 for (i in thelist){
   assign(paste0('Sitio',i), read.dbf(paste0("Buffer sitio ",i,".dbf")))
 }
-## sugar code
+## sugar code used on later functions
 todf <- function(string,numb){
   eval(parse(text = paste0(string,numb)))
 }
@@ -17,14 +16,15 @@ todf <- function(string,numb){
 makegraph <- function(i){
   a <- ggplot(data = todf("Sitio",i), aes(y=area.ha, x=USO_ACTUAL)) +
     xlab("Tipo de Uso de suelo") +
-    ylab("Área (hectáreas)") +
+    ylab("?rea (hect?reas)") +
     geom_bar(position="stack", stat="identity") +
-    scale_fill_viridis(discrete = T) +
     ggtitle(paste0("Usos suelo en sitio ",i)) +
-    theme(text = element_text(size=11),
-          axis.text.x = element_text(angle=90, hjust=1)) 
-  return(a)
+    coord_flip() +
+    scale_y_continuous(expand = c(0, 0))
+  print(a)
+  ggsave(filename = (paste0("Usos de suelo en sitio ", i, ".png")), height = 6, width = 9, unit = "in")
 }
+makegraph(1)
 ## hardcoded to take a quick look at the data
 Sitio1 %>%
   group_by(USO_ACTUAL) %>%
@@ -32,5 +32,5 @@ Sitio1 %>%
 
 ## print all the cool graphs
 for (i in thelist){
-  print(makegraph(i))
+  makegraph(i)
 }
