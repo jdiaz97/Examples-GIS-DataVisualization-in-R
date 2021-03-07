@@ -1,5 +1,6 @@
 library(rio)
 library(ggplot2)
+library(reshape2)
 
 df <- import("1.xlsx")
 
@@ -7,14 +8,14 @@ df <- import("1.xlsx")
 cols <- c("SB" = "red", "IT" = "blue", "CO" = "green")
 shapes <- c("SB" = 17, "IT" = 15, "CO" = 19)
 
-
+## paper style version, but withour error bars cause data not available
 for (j in unique(df$Evaluación)){
   for (i in unique(df$Especie)){
     a <- ggplot(df[df$Especie == i & df$Evaluación == j,], aes(x = Fecha, y = `Tamaño (cm)`, 
                                                                color = Tratamiento, 
                                                                group = Tratamiento, shape = Tratamiento)) + 
       guides(color = guide_legend(reverse = TRUE), shape = guide_legend(reverse = TRUE)) +
-      geom_point(aes(shape = Tratamiento)) + 
+      geom_point() + 
       geom_line() +
       theme_classic() +
       ylab(j) +
@@ -26,6 +27,23 @@ for (j in unique(df$Evaluación)){
   }
 }
 
-## Tukey info is missing, gotta find a way to incorporate it
+## Tukey's test added info version. Most complete version.. Gotta fix multiplied letters.
 
-  
+for (j in unique(df$Evaluación)){
+  for (i in unique(df$Especie)){
+    a <- ggplot(df[df$Especie == i & df$Evaluación == j,], aes(x = Fecha, y = `Tamaño (cm)`, 
+                                                               color = Tratamiento, 
+                                                               group = Tratamiento, 
+                                                               shape = Tukey)) + 
+      guides(color = guide_legend(reverse = TRUE), shape = guide_legend(reverse = TRUE)) +
+      geom_point(size = 7.5) + 
+      geom_line() +
+      theme_classic() +
+      ylab(j) +
+      ggtitle(i) +
+      scale_color_manual(values = cols) +
+      scale_shape_identity()
+    print(a)
+    ggsave(filename = paste(i, j, "Tukey", ".png"))
+  }
+}
