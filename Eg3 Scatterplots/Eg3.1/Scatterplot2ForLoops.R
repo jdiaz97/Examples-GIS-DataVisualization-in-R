@@ -1,6 +1,9 @@
 library(rio)
 library(ggplot2)
 library(reshape2)
+library(extrafont)
+font_import()
+loadfonts(device = "win")
 
 df <- import("1.xlsx")
 
@@ -27,7 +30,7 @@ for (j in unique(df$Evaluación)){
   }
 }
 
-## Tukey's test added info version. Most complete version.. Gotta fix multiplied letters.
+## Tukey's test added info version. Gotta fix multiplied letters.
 
 for (j in unique(df$Evaluación)){
   for (i in unique(df$Especie)){
@@ -48,16 +51,16 @@ for (j in unique(df$Evaluación)){
   }
 }
 
-## Another solution for fixing Tukey's letters,
+## Another solution for fixing Tukey's letters, This show multiplied letters.
 for (j in unique(df$Evaluación)){
   for (i in unique(df$Especie)){
     a <- ggplot(df[df$Especie == i & df$Evaluación == j,], aes(x = Fecha, y = `Tamaño (cm)`, 
                                                                color = Tratamiento, 
                                                                group = Tratamiento)) + 
       guides(color = guide_legend(reverse = TRUE), shape = guide_legend(reverse = TRUE)) +
-      geom_point(size = 0) + 
+      geom_point(size = 0, show.legend = FALSE) + 
       geom_text(
-        aes(label = Tukey), size = 8) +
+        aes(label = Tukey, stroke = 4), size = 8, show.legend = FALSE) +
       geom_line() +
       theme_classic() +
       ylab(j) +
@@ -68,3 +71,5 @@ for (j in unique(df$Evaluación)){
     ggsave(filename = paste(i, j, "Tukey2", ".png"))
   }
 }
+
+## Best solution should be a mix of the last two, to get the most info and the most beautiful plot
