@@ -44,6 +44,27 @@ for (j in unique(df$Evaluación)){
       scale_color_manual(values = cols) +
       scale_shape_identity()
     print(a)
-    ggsave(filename = paste(i, j, "Tukey", ".png"))
+    ggsave(filename = paste(i, j, "Tukey1", ".png"))
+  }
+}
+
+## Another solution for fixing Tukey's letters,
+for (j in unique(df$Evaluación)){
+  for (i in unique(df$Especie)){
+    a <- ggplot(df[df$Especie == i & df$Evaluación == j,], aes(x = Fecha, y = `Tamaño (cm)`, 
+                                                               color = Tratamiento, 
+                                                               group = Tratamiento)) + 
+      guides(color = guide_legend(reverse = TRUE), shape = guide_legend(reverse = TRUE)) +
+      geom_point(size = 0) + 
+      geom_text(
+        aes(label = Tukey), size = 8) +
+      geom_line() +
+      theme_classic() +
+      ylab(j) +
+      ggtitle(i) +
+      scale_color_manual(values = cols) +
+      scale_shape_identity()
+    print(a)
+    ggsave(filename = paste(i, j, "Tukey2", ".png"))
   }
 }
