@@ -3,6 +3,10 @@ Useful code for me
 
 ### Eg 1
 Descriptive statistics summary boxplot
+
+![](Eg1 SummaryGraph/output.jpg)<!-- -->
+
+
 ### Eg 2
 Basic bar graphs. Repeatead bar graphs using loops to process several dataframes
 #### Eg 2.2
