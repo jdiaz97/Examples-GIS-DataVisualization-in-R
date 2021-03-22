@@ -4,8 +4,7 @@ Useful code for me
 ### Eg 1
 Descriptive statistics summary boxplot
 
-![](Eg1 SummaryGraph/output.jpg)<!-- -->
-
+<img src="Eg1 SummaryGraph/output.jpg" width="25%" />
 
 ### Eg 2
 Basic bar graphs. Repeatead bar graphs using loops to process several dataframes
