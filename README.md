@@ -12,7 +12,7 @@ Basic bar graphs. Repeatead bar graphs using loops to process several dataframes
 The datasets is downloadable [here](http://www.ide.cl/index.php/flora-y-fauna/item/1513-catastros-de-uso-de-suelo-y-vegetacion).
 It's not a very good dataset but it has relevant info.
 
-<img src="Eg2 BarplotsEg2.2/output/Usos de suelo en Región del Biobío.png" width="80%" />
+<img src="Eg2 Barplots/Eg2.2/output/Usos de suelo en Región del Biobío.png" width="80%" />
 
 ### Eg 3
 Scatterplots
