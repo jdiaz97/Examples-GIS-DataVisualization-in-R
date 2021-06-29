@@ -1,3 +1,4 @@
-# Limnological profile ### Thanks to the reddit guy that helped me. 
+# Limnological profile 
+### Thanks to the reddit guy that helped me. 
 
-<img src="output/Perfil limnológico.png" width="80%" />
+<img src="output/Perfil limnolÃ³gico.png" width="80%" />
