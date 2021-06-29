@@ -12,7 +12,7 @@ Basic bar graphs. Repeatead bar graphs using loops to process several dataframes
 The datasets is downloadable [here](http://www.ide.cl/index.php/flora-y-fauna/item/1513-catastros-de-uso-de-suelo-y-vegetacion).
 It's not a very good dataset but it has relevant info.
 
-<img src="Eg2 BarGraphs/Eg2.2/output/Usos de suelo en Región del Biobío.png" width="80%" />
+<img src="Eg2 BarplotsEg2.2/output/Usos de suelo en Región del Biobío.png" width="80%" />
 
 ### Eg 3
 Scatterplots
@@ -21,3 +21,7 @@ This is the tidy data + graphs version of a table found in the paper "Effects of
 
 <img src="Eg3 Scatterplots/Eg3.1/Output/Function 3/Q. suber Altura de la planta (cm) Tukey2 .png" width="80%" />
 
+### Eg 5
+Limnological profile
+
+<img src="Eg4 Limnological profile/output/Perfil limnológico.png" width="80%" />
