@@ -42,18 +42,18 @@ getdata <- function(html,n){
 }
 
 plotit <- function(df,name){
-  ggplot(df) + aes(x = release, y = score) +
-    geom_image(aes(image = img)) +
+  a <- ggplot(df) + aes(x = release, y = score) +
+    geom_image(aes(image = img), size = 0.9/nrow(df)) +
     theme_minimal() +
     scale_y_continuous(limits = c(0,5), expand = c(0,0)) +
-    scale_x_continuous(breaks = 1:50) +
+    scale_x_continuous(limits = c(0.8,nrow(df)+0.2),breaks = 1:50) +
     xlab("Order of release") +
     ylab("Score") +
-    ggtitle(paste0("Score of ",name,"'s single albums on Rate Your Music")) +
+    ggtitle(paste0("Score of ",name,"'s albums on Rate Your Music")) +
     theme(plot.title = element_text(hjust = 0.5))
   
   ## gotta fix img 3 by hand because rate your music has a wrong album cover 
-  
+  print(a)
   ggsave(paste(name,".jpg"), width = 5.6, height = 5.6)
 }
 
@@ -73,3 +73,38 @@ df <- getdata(
 )
 
 plotit(df, "Spinetta")
+
+df <- getdata(
+  html = "https://rateyourmusic.com/artist/the_killers",
+  n = 9
+)
+df <- df[c(-1,-3),]
+df$release <- 1:nrow(df)
+df$img[2] <- "https://img.discogs.com/Jbke1lTzuqToDSa_O5jKmfrP158=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-11071356-1509307179-6190.jpeg.jpg"
+plotit(df,"The Killers")
+
+df <- getdata(
+  html = "https://rateyourmusic.com/artist/the-strokes-1",
+  n = 6
+)
+
+df$img[1] <- "https://indierocks.b-cdn.net/wp-content/uploads/2021/06/the-strokes-Is-this-it.jpg"
+plotit(df, "The Strokes")
+
+df <- getdata(
+  html = "https://rateyourmusic.com/artist/radiohead",
+  n = 14
+)
+df$img[8] <- "https://images-na.ssl-images-amazon.com/images/I/A1MwaIeBpwL._SL1500_.jpg"
+df <- df[c(-6,-11,-13,-14),]
+df$release <- 1:nrow(df)
+df$img[8]
+plotit(df, "Radiohead")
+
+df <- getdata(
+  html = "https://rateyourmusic.com/artist/arctic-monkeys",
+  n = 7
+)
+df <- df[-3,]
+df$release <- 1:nrow(df)
+plotit(df, "Arctic Monkeys")
