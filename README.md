@@ -27,13 +27,13 @@ Limnological profile
 ### Eg 5
 Make world clouds from text in a PDF. I made an example with data from presidentail programs.
 
-<img src="Eg5 Word clouds/Eg5.1/Output/Programa de Boric.png" width="80%" />
+<img src="Eg5 Word clouds/Eg5.1/Output/Programa de Boric.png" width="70%" />
 
 ### Eg 6
-Scraping for interesting data. Rate Your Music, iMDb, and some secret website that hold data about vascular plants in Chile.
+Scraping for interesting data. Rate Your Music, iMDb, and some secret website that holds data about vascular plants in Chile.
 
-<img src="Eg6 Scraping/imdb/The Office.png" width="80%" />
-<img src="Eg6 Scraping/imdb/Mr Robot.png" width="80%" />
+<img src="Eg6 Scraping/imdb/The Office.png" width="70%" />
+<img src="Eg6 Scraping/imdb/Mr Robot.png" width="70%" />
 <img src="Eg6 Scraping/rate your music/The Strokes .jpg" width="55%" />
 
 ### Eg 7 
