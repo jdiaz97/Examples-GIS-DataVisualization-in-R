@@ -2,6 +2,7 @@ library(rvest) ## scraping tool
 library(ggplot2) ## graph
 library(ggthemes) ## make a cuter graph
 
+## this gets: seasons, episodes and scores.
 ## link must look like the example at the end
 ## grouped by season
 get_data <- function(html){
@@ -35,9 +36,9 @@ plotit <- function(name,df, trend = FALSE, line = TRUE){
     scale_y_continuous(limits = c(min(df$score)-1,10), breaks = seq(0,10.0,1)) +
     theme_fivethirtyeight() +
     theme(plot.title = element_text(hjust = 0.5)) +
-    ggtitle(paste("Score on IMDb of", name)) +
-    annotate("text",x=Inf,y=-Inf,label="u/FinchoDM",
-             hjust=1.1,vjust=-0.5,col="grey",cex=4,fontface = "bold", alpha = 0.8)
+    ggtitle(paste("Score on IMDb of", name)) 
+    # + annotate("text",x=Inf,y=-Inf,label="your name",
+    #          hjust=1.1,vjust=-0.5,col="grey",cex=4,fontface = "bold", alpha = 0.8)
   if (line == TRUE){
     a <- a + geom_line()
   }

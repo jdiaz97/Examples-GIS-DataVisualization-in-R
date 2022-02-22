@@ -1,8 +1,8 @@
 library(rvest)
 library(ggplot2)
 
+## this version is not as clean or cool than imdb2.R
 ## links provided MUST be simple/compact mode and release by date
-
 
 getdata <- function(html){
   ## gotta be ordered by release date

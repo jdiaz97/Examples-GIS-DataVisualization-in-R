@@ -34,7 +34,7 @@ Scraping for interesting data. Rate Your Music, iMDb, and some secret website th
 
 <img src="Eg6 Scraping/imdb/The Office.png" width="80%" />
 <img src="Eg6 Scraping/imdb/Mr Robot.png" width="80%" />
-<img src="Eg6 Scraping/rate your music/The Strokes .jpg" width="40%" />
+<img src="Eg6 Scraping/rate your music/The Strokes .jpg" width="55%" />
 
 ### Eg 7 
 GIS Processing
