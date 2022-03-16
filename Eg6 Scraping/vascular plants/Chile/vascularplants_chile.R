@@ -5,7 +5,7 @@ library(rio)
 ## DON'T RUN
 
 site <- function(id){
-  try(assign("thehtml",read_html(paste0("SORRY I CAN'T GIVE IT",id))
+  try(assign("thehtml",read_html(paste0("http://catalogoplantas.udec.cl/?q=node/",id))
          %>% html_elements("section"), envir = globalenv()), silent = TRUE)
 }
 
@@ -15,27 +15,28 @@ getdata <- function(n){
 }
 
 adddata <- function(){
-  df <- {}
+  df <- data.frame()
   df$nombre <- thehtml %>% html_elements("h1") %>% html_text2()
   df$familia <- getdata(1)
   df$sinonimos <- getdata(2)
-  df$hábito <- getdata(3)
+  df$habito <- getdata(3)
   df$origen <- getdata(4)
   df$distribuicion <- getdata(5)
   df$rango <- getdata(6)
   df$paiseslimitrofes <- getdata(7)
   df$nombrecomún <- getdata(8)
   df$notas <- getdata(9)
-  df <- as.data.frame(df)
   assign("df1", rbind(df1,df), envir = globalenv())
 }
+
 ## create dummy df
-site(4354)
+a <- site(4354)
+
 df1 <- {}
 df1$nombre <- thehtml %>% html_elements("h1") %>% html_text2()
 df1$familia <- getdata(1)
 df1$sinonimos <- getdata(2)
-df1$hábito <- getdata(3)
+df1$habito <- getdata(3)
 df1$origen <- getdata(4)
 df1$distribuicion <- getdata(5)
 df1$rango <- getdata(6)
