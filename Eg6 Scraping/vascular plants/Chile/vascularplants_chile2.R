@@ -22,11 +22,21 @@ get_img <- function(site){
   }
 }
 
+get_tiny_img <- function(site){
+  tinyimg_url <- (site %>% html_elements("img") %>% html_attr("src"))[2]
+  if (grepl("itok",tinyimg_url)){
+    tinyimg_url
+  } else {
+    "-"
+  }
+}
+
 create_df <- function(html){
   if (!is.error(html)){
     df <- data.frame(
       "nombre" = html %>% html_elements("h1") %>% html_text2(),
-      "img_url" = get_img(html),
+      "large_img_url" = get_img(html),
+      "tiny_img_url" = get_tiny_img(html),
       "familia" = get_data(html,1),
       "sinonimos" = get_data(html,2),
       "habito" = get_data(html,3),
@@ -54,6 +64,6 @@ for (i in 1:6500){
 
 ## get good data 
 export_df <- final_df[complete.cases(final_df),]
-export(export_df, "data..csv")
-export(export_df, "data..json")
-export(export_df, "data..xlsx")
+export(export_df, "data.csv")
+export(export_df, "data.json")
+export(export_df, "data.xlsx")
