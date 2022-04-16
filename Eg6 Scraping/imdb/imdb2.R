@@ -49,9 +49,10 @@ plotit <- function(name,df, trend = FALSE, line = TRUE){
 }
 
 community <- getdf("https://www.imdb.com/title/tt1439629/episodes?season=", 6)
-
 plotit("Community", community)
 ggsave("community.png")
+
+zatchbell <- getdf("https://www.imdb.com/title/tt0455295/episodes?season=",3)
 
 superstore<- getdf("https://www.imdb.com/title/tt4477976/episodes?season=", 6)
 plotit("Superstore", superstore)
